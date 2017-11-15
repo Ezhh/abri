@@ -6,7 +6,7 @@ assert(minetest.get_mapgen_setting("mg_name") ~= "v6", "Please choose another Ma
 -- mapgen aliases
 minetest.register_alias("mapgen_stone", "abri:stone_black")
 minetest.register_alias("mapgen_water_source", "abri:blue_water_source")
-minetest.register_alias("mapgen_river_water_source", "abri:blue_water_source")
+minetest.register_alias("mapgen_river_water_source", "abri:blue_river_water_source")
 
 
 -- register biomes
@@ -34,7 +34,7 @@ for i in ipairs(col_list) do
 		-- node_water_top = "default:ice",
 		-- depth_water_top = 1,
 		node_water = "abri:"..col.."_water_source",
-		-- node_river_water = "",
+		node_river_water = "abri:"..col.."_river_water_source",
 		node_riverbed = "abri:stone",
 		depth_riverbed = 2,
 		y_min = -30000,
