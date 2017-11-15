@@ -4,7 +4,7 @@
 assert(minetest.get_mapgen_setting("mg_name") ~= "v6", "Please choose another Mapgen.")
 
 -- mapgen aliases
-minetest.register_alias("mapgen_stone", "abri:stone")
+minetest.register_alias("mapgen_stone", "abri:stone_black")
 minetest.register_alias("mapgen_water_source", "abri:blue_water_source")
 minetest.register_alias("mapgen_river_water_source", "abri:blue_water_source")
 
@@ -30,7 +30,7 @@ for i in ipairs(col_list) do
 		depth_top = 1,
 		node_filler = "abri:dirt",
 		depth_filler = 3,
-		node_stone = "abri:stone",
+		node_stone = "abri:stone_"..col,
 		-- node_water_top = "default:ice",
 		-- depth_water_top = 1,
 		node_water = "abri:"..col.."_water_source",

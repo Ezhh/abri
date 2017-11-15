@@ -1,13 +1,4 @@
 
-minetest.register_node("abri:stone", {
-	description = "Stone",
-	tiles = {"abri_stone.png"},
-	groups = {cracky = 3, stone = 1},
-	drop = 'abri:stone',
-	legacy_mineral = true,
-	-- sounds = default.node_sound_stone_defaults(),
-})
-
 minetest.register_node("abri:dirt", {
 	description = "Dirt",
 	tiles = {"abri_dirt.png"},
@@ -16,18 +7,20 @@ minetest.register_node("abri:dirt", {
 })
 
 local col_list = {
-	{"black", "292421"}, {"purple", "800080"}, {"blue", "0000FF"},
-	{"cyan", "00FFFF"}, {"green", "00FF00"}, {"yellow", "FFFF00"},
-	{"orange", "FF6103"}, {"red", "FF0000"}, {"magenta", "FF00FF"},
-	{"white", "FFFFFF"},
+	{"black", "Black", "292421"}, {"purple", "Purple", "800080"},
+	{"blue", "Blue", "0000FF"}, {"cyan", "Cyan", "00FFFF"},
+	{"green", "Green", "00FF00"}, {"yellow", "Yellow", "FFFF00"},
+	{"orange", "Orange", "FF6103"}, {"red", "Red", "FF0000"},
+	{"magenta", "Magenta", "FF00FF"}, {"white", "White", "FFFFFF"},
 }
 
 for i in ipairs(col_list) do
 	local col = col_list[i][1]
-	local code = col_list[i][2]
+	local name = col_list[i][2]
+	local code = col_list[i][3]
 
 	minetest.register_node("abri:dirt_with_"..col.."_grass", {
-		description = "Dirt with "..col.." Grass",
+		description = "Dirt with "..name.." Grass",
 		tiles = {"abri_grass_"..col..".png", "abri_dirt.png",
 			{name = "abri_dirt.png^abri_grass_side_"..col..".png",
 				tileable_vertical = false}},
@@ -36,6 +29,14 @@ for i in ipairs(col_list) do
 		-- sounds = default.node_sound_dirt_defaults({
 		-- 	footstep = {name = "default_grass_footstep", gain = 0.25},
 		-- }),
+	})
+
+	minetest.register_node("abri:stone_"..col, {
+		description = name.."Stone",
+		tiles = {"abri_stone.png^[colorize:#"..code..":60"},
+		groups = {cracky = 3, stone = 1},
+		drop = 'abri:stone_'..col, -- change to cobble?
+		-- sounds = default.node_sound_stone_defaults(),
 	})
 end
 
