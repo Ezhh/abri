@@ -37,9 +37,32 @@ for i in ipairs(col_list) do
 		node_river_water = "abri:"..col.."_river_water_source",
 		node_riverbed = "abri:stone",
 		depth_riverbed = 2,
-		y_min = -30000,
+		y_min = -3000,
 		y_max = 31000,
 		heat_point = heat,
 		humidity_point = humidity,
 	})
+	
+	minetest.register_biome({
+		name = col.."_deep_land",
+		-- node_dust = "",
+		-- node_top = "abri:dirt_with_"..col.."_grass",
+		-- depth_top = 1,
+		-- node_filler = "abri:dirt",
+		-- depth_filler = 3,
+		node_stone = "abri:stone_"..col,
+		-- node_water_top = "default:ice",
+		-- depth_water_top = 1,
+		node_water = "abri:"..col.."_water_source",
+		node_river_water = "abri:"..col.."_river_water_source",
+		node_riverbed = "abri:stone",
+		depth_riverbed = 2,
+		y_min = -30000,
+		y_max = -3000,
+		heat_point = heat,
+		humidity_point = humidity,
+	})
 end
+
+
+
