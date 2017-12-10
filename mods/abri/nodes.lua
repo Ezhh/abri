@@ -40,3 +40,11 @@ for i in ipairs(col_list) do
 	})
 end
 
+-- ore
+minetest.register_node("abri:stone_blue_with_azurite", {
+	description = "Blue Stone with Azurite",
+	tiles = {"abri_stone.png^[colorize:#0000FF:60^abri_ore_azurite.png"},
+	groups = {cracky = 3, stone = 1},
+	drop = 'abri:stone_blue', -- change to azurite
+	-- sounds = default.node_sound_stone_defaults(),
+})
