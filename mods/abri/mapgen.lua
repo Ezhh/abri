@@ -1,8 +1,4 @@
 
-
--- crash and show error if v6 is used
-assert(minetest.get_mapgen_setting("mg_name") ~= "v6", "Please choose another Mapgen.")
-
 -- mapgen aliases
 minetest.register_alias("mapgen_stone", "abri:stone_black")
 minetest.register_alias("mapgen_water_source", "abri:blue_water_source")
